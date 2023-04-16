@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YUM DUDE</title>
+     <style>
+        h1 {
+            text-align: center;
+        }
+        
+    </style>
+   
+</head>
+<body>
+    <h1> WELCOME DUDES TO THE YUM DUDE </h1>
+    <form id="myForm">
+        <div>
+          <h1>Dishes by dudes </h1>
+
+          <!-- label and input for price -->
+          <label for="Choose Price"><b>choose price</b></label>
+          <input
+            type="text"
+            placeholder="Enter Price"
+            name="price"
+            id="price"
+            required
+          />
+          <!-- label and input for email -->
+          <label for="Choose Dish"><b>Choose Dish</b></label>
+          <input
+            type="text"
+            placeholder="Enter Dish"
+            name="Dish"
+            id="Dish"
+            required
+          />
+       
+          <label for="table-select"><b>Choose a Table</b></label>
+<select id="table-select" name="table">
+  <option value="">Select a table</option>
+  <option value="table1">Table 1</option>
+  <option value="table2">Table 2</option>
+  <option value="table3">Table 3</option>
+</select>
+<button type="Add to bill">Submit</button>
+
+          
+        </div>
+        <div></div>
+      </form>
+      <script>
+        const form = document.getElementById("myForm");
+  
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+  
+          const formData = new FormData(form);
+          const url = "https://crudcrud.com/api/6354b5997ec34b8c9a515e39ff93bd99";
+  
+          try {
+            const response = await fetch(url, {
+              method: "POST",
+              body: formData,
+            });
+  
+            if (response.ok) {
+              alert("Data saved successfully!");
+            } else {
+              alert("Something went wrong!");
+            }
+          } catch (error) {
+            alert(error);
+          }
+        });
+      </script>
+</body>
+</html>
